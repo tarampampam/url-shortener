@@ -1,0 +1,17 @@
+## IDEs
+/.idea
+/.vscode
+
+## Node
+/node_modules
+
+## Generaated types
+/types.gen.d.ts
+
+## Temp dirs & trash
+/temp
+/tmp
+/.cache
+/.wrangler
+.dev.vars
+.DS_Store

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <title>URL Shortener</title>
+
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body class="loading">
+    <noscript>No money? No funny honey bunny (enable JavaScript)</noscript>
+    <main>
+      <section class="hidden" id="result">
+        <a href="#" target="_blank" id="result-link"></a>
+        <button class="copy unselectable" id="result-copy-link">Copy link</button>
+      </section>
+      <section class="hidden" id="error"></section>
+      <form id="shorten">
+        <section id="data">
+          <div class="left">
+            <input
+              type="url"
+              name="search"
+              id="url"
+              placeholder="Enter a URL to shorten..."
+              aria-label="Enter a URL to shorten..."
+              autocomplete="off"
+              spellcheck="false"
+              inputmode="none"
+              autofocus
+              required
+            />
+            <input
+              type="text"
+              name="search"
+              id="slug"
+              placeholder="/custom-slug"
+              aria-label="/custom-slug"
+              autocomplete="off"
+              spellcheck="false"
+              inputmode="none"
+            />
+          </div>
+          <div class="right">
+            <button type="submit" id="submit">Shorten</button>
+          </div>
+        </section>
+        <section id="auth">
+          <label class="unselectable" for="auth-token" id="show-token">🔐</label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Auth token"
+            aria-label="Auth token"
+            id="auth-token"
+            autocomplete="current-password"
+            inputmode="text"
+            tabindex="-1"
+          />
+        </section>
+      </form>
+    </main>
+    <script type="module" src="assets/script.js"></script>
+  </body>
+</html>

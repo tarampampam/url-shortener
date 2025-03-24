@@ -1,0 +1,22 @@
+{
+  "name": "url-shortener",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "gen": "wrangler types ./types.gen.d.ts",
+    "fmt": "prettier --write ./src ./*.js ./public/*.html",
+    "test": "vitest --run --logHeapUsage --dir ./src",
+    "dev": "wrangler dev"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "vitest": "^3.0.9",
+    "wrangler": "^4.1.0"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "volta": {
+    "node": "20"
+  }
+}
