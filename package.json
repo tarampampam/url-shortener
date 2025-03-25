@@ -4,12 +4,25 @@
   "type": "module",
   "scripts": {
     "gen": "wrangler types ./types.gen.d.ts",
-    "fmt": "prettier --write ./src ./*.js ./public/*.html",
+    "fmt": "prettier --write ./src ./*.{js,ts} ./static",
     "test": "vitest --run --logHeapUsage --dir ./src",
-    "dev": "wrangler dev"
+    "lint:ts": "tsc --noEmit",
+    "lint": "conc -r 'npm run lint:ts'",
+    "build:server": "vite build --mode server",
+    "build:client": "vite build --mode client",
+    "build": "conc --names server,client 'npm run build:server' 'npm run build:client'",
+    "watch:server": "vite build --mode server --watch",
+    "watch:client": "vite build --mode client --watch",
+    "watch": "conc --names server,client 'npm run watch:server' 'npm run watch:client'",
+    "dev:wrangler": "wrangler --config ./dist/wrangler.json dev --no-bundle --live-reload --show-interactive-dev-session=false",
+    "dev": "conc -k --restart-tries 3 --names wrnglr,server,client 'npm run dev:wrangler' 'npm run watch:server' 'npm run watch:client'"
   },
   "devDependencies": {
+    "@types/node": "^22.13.13",
+    "concurrently": "^9.1.2",
     "prettier": "^3.5.3",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.3",
     "vitest": "^3.0.9",
     "wrangler": "^4.1.0"
   },

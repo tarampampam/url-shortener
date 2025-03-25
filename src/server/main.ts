@@ -7,7 +7,7 @@
 import { createHandler, redirectHandler, jsonErr, authMiddleware } from './handlers'
 import { isApiRequest, Router, routes } from './routing'
 import { InMemory, KVStorage } from './storage'
-import error404 from '../public/404.html'
+import error404 from '../../static/404.html?raw'
 
 // to decrease the number of KV reads, we cache the short link locations in memory. this approach allows the
 // Worker to access frequently used data without querying the KV store each time. however, it's important to

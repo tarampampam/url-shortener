@@ -5,6 +5,9 @@
 ## Node
 /node_modules
 
+## Dist
+/dist
+
 ## Generaated types
 /types.gen.d.ts
 
