@@ -5,13 +5,17 @@
 ## Node
 /node_modules
 
-## Generaated types
-/types.gen.d.ts
+## Dist
+/dist
+
+## Generaated content
+*.gen.*
 
 ## Temp dirs & trash
 /temp
 /tmp
 /.cache
 /.wrangler
+*.tsbuildinfo
 .dev.vars
 .DS_Store

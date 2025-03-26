@@ -39,7 +39,7 @@ describe('router', () => {
         return async (req, env, ctx) => {
           const resp = await next(req, env, ctx)
 
-          resp.headers.set('x-handler-mw', 'ok')
+          resp!.headers.set('x-handler-mw', 'ok')
 
           return resp
         }
@@ -50,7 +50,7 @@ describe('router', () => {
       return async (req, env, ctx) => {
         const resp = await next(req, env, ctx)
 
-        resp.headers.set('x-global-mw', 'ok')
+        resp!.headers.set('x-global-mw', 'ok')
 
         return resp
       }

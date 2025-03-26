@@ -102,7 +102,7 @@ const parseAndValidateRequest = async (req: Request): Promise<[RequestPayload, u
   switch (true) {
     case typeof v !== 'object' || v === null:
       return [undefined, new Error('invalid payload type')] // request must be a valid object
-    case !v.hasOwnProperty('url') || !v.url:
+    case !Object.prototype.hasOwnProperty.call(v, 'url') || !v.url:
       return [undefined, new Error('URL is required')] // url field must be present and not empty
     case !v.url.startsWith('https://') && !v.url.startsWith('http://'):
       return [undefined, new Error('the URL must start with "https://" or "http://"')] // enforce valid URL scheme
@@ -110,7 +110,7 @@ const parseAndValidateRequest = async (req: Request): Promise<[RequestPayload, u
       return [undefined, new Error('the URL is too long')] // prevent excessively long URLs
   }
 
-  if (v.hasOwnProperty('slug') && v.slug) {
+  if (Object.prototype.hasOwnProperty.call(v, 'slug') && v.slug) {
     switch (true) {
       case (typeof v.slug as unknown) !== 'string':
         return [undefined, new Error('invalid slug type')] // slug must be a string
