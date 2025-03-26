@@ -4,19 +4,16 @@
   "type": "module",
   "scripts": {
     "gen": "wrangler types ./src/server/types.gen.d.ts",
-    "fmt": "prettier --write ./src ./*.{js,ts} ./static && npm run lint:es -- --fix",
+    "fmt": "eslint ./src --fix && prettier --write ./src ./*.{js,ts} ./static",
     "test": "vitest --run --logHeapUsage --dir ./src",
-    "lint:ts": "tsc -b --noEmit",
-    "lint:es": "eslint ./src",
-    "lint": "conc --names ts,es 'npm run lint:ts' 'npm run lint:es'",
+    "lint": "conc -n ts,es 'tsc -b --noEmit' 'eslint ./src'",
     "build:server": "vite build --mode server",
     "build:client": "vite build --mode client",
-    "build": "conc --names server,client 'npm run build:server' 'npm run build:client'",
-    "watch:server": "vite build --mode server --watch",
-    "watch:client": "vite build --mode client --watch",
-    "watch": "conc --names server,client 'npm run watch:server' 'npm run watch:client'",
-    "dev:wrangler": "wrangler --config ./dist/wrangler.json dev --no-bundle --live-reload --show-interactive-dev-session=false",
-    "dev": "conc -k --restart-tries 3 --names wrnglr,server,client 'npm run dev:wrangler' 'npm run watch:server' 'npm run watch:client'"
+    "build": "conc -n server,client 'npm run build:server' 'npm run build:client'",
+    "watch:server": "npm run build:server -- --watch",
+    "watch:client": "npm run build:client -- --watch",
+    "watch:wrnglr": "wrangler -c ./dist/wrangler.json dev --no-bundle --live-reload --show-interactive-dev-session=false",
+    "dev": "conc -k --restart-tries 3 -n server,client,wrnglr 'npm run watch:server' 'npm run watch:client' 'npm run watch:wrnglr'"
   },
   "devDependencies": {
     "@eslint/js": "^9.23.0",
