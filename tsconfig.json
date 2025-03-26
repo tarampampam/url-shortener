@@ -1,19 +1,10 @@
 {
-	"compilerOptions": {
-		"target": "es2021",
-		"lib": ["es2021"],
-		"module": "es2022",
-		"moduleResolution": "Bundler",
-		"resolveJsonModule": true,
-		"allowJs": true,
-		"checkJs": false,
-		"noEmit": true,
-		"isolatedModules": true,
-		"allowSyntheticDefaultImports": true,
-		"forceConsistentCasingInFileNames": true,
-		"strict": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true
+  "compilerOptions": {
+    "composite": true
   },
-	"include": ["types.gen.d.ts", "src/**/*.ts"]
+  "files": [],
+  "references": [
+    { "path": "./src/client" },
+    { "path": "./src/server" }
+  ]
 }

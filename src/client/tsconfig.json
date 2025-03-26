@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": [
+      "ES2021",
+      "DOM",
+      "DOM.Iterable"
+    ]
+  },
+  "include": [
+    "../../node_modules/vite/client.d.ts",
+    "**/*.ts",
+    "**/*.json"
+  ]
+}

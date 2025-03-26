@@ -8,8 +8,8 @@
 ## Dist
 /dist
 
-## Generaated types
-/src/server/types.gen.d.ts
+## Generaated content
+*.gen.*
 
 ## Temp dirs & trash
 /temp
