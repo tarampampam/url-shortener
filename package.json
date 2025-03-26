@@ -30,7 +30,7 @@
     "vite": "^6.2.3",
     "vite-plugin-html": "^3.2.2",
     "vitest": "^3.0.9",
-    "wrangler": "^4.1.0"
+    "wrangler": "^4.4.1"
   },
   "engines": {
     "node": "20"
