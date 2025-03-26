@@ -9,12 +9,13 @@
 /dist
 
 ## Generaated types
-/types.gen.d.ts
+/src/server/types.gen.d.ts
 
 ## Temp dirs & trash
 /temp
 /tmp
 /.cache
 /.wrangler
+*.tsbuildinfo
 .dev.vars
 .DS_Store

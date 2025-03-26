@@ -119,7 +119,7 @@ export class Router {
    */
   public handle = (req: Request, env: Env, ctx: ExecutionContext): ReturnType<Handler> => {
     let handler: Handler | undefined
-    let middleware: Array<Middleware> = []
+    const middleware: Array<Middleware> = []
 
     const route = this.find(req)
     if (route === undefined) {

@@ -2,6 +2,7 @@
 
 import { readFileSync, writeFileSync } from 'fs'
 import { join, resolve } from 'path'
+import { createHtmlPlugin } from 'vite-plugin-html'
 import { defineConfig, type ESBuildOptions, type PluginOption, type UserConfig } from 'vite'
 
 // resolve project root directory
@@ -80,10 +81,10 @@ export default defineConfig(({ mode, command }): UserConfig => {
         // server build config for worker (vite build --mode server)
         case 'server':
           return {
-            plugins: [copyWranglerPlugin],
             root: serverSrcDir,
+            plugins: [copyWranglerPlugin],
             build: {
-              emptyOutDir: true,
+              emptyOutDir: !isWatchMode,
               lib: {
                 entry: join(serverSrcDir, 'main.ts'),
                 formats: ['es'],
@@ -104,8 +105,9 @@ export default defineConfig(({ mode, command }): UserConfig => {
           return {
             root: clientSrcDir,
             publicDir: staticDir,
+            plugins: [createHtmlPlugin({ minify: !isWatchMode })],
             build: {
-              emptyOutDir: true,
+              emptyOutDir: !isWatchMode,
               outDir: clientDistDir,
               rollupOptions: {
                 input: join(clientSrcDir, 'index.html'),
