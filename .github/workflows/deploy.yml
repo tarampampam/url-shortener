@@ -31,5 +31,5 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           # docs: https://developers.cloudflare.com/workers/wrangler/commands/#deploy
-          command: deploy ./dist --name=${{ vars.CLOUDFLARE_PROJECT_NAME }}
+          command: deploy --cwd ./dist --name=${{ vars.CLOUDFLARE_PROJECT_NAME }}
         env: {WRANGLER_SEND_METRICS: false}
