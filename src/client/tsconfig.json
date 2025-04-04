@@ -1,7 +1,10 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "lib": ["ES2021", "DOM", "DOM.Iterable"]
+    "tsBuildInfoFile": "../../node_modules/.tmp/client.tsbuildinfo",
+    "lib": ["ES2021", "DOM", "DOM.Iterable"],
+    "isolatedModules": true,
+    "moduleDetection": "force"
   },
-  "include": ["../../node_modules/vite/client.d.ts", "**/*.ts", "**/*.json"]
+  "include": ["../../node_modules/vite/client.d.ts", "**/*.ts", "**/*.json", "**/*.svelte"]
 }

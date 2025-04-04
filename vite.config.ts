@@ -3,6 +3,9 @@
 import { readFileSync, writeFileSync } from 'fs'
 import { join, resolve } from 'path'
 import { defineConfig, type ESBuildOptions, type PluginOption, type UserConfig } from 'vite'
+import { createHtmlPlugin } from 'vite-plugin-html'
+import { viteSingleFile } from 'vite-plugin-singlefile'
+import { svelte, vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 
 // resolve project root directory
 const rootDir = resolve(__dirname)
@@ -83,7 +86,7 @@ export default defineConfig(({ mode, command }): UserConfig => {
             plugins: [copyWranglerPlugin],
             root: serverSrcDir,
             build: {
-              emptyOutDir: true,
+              emptyOutDir: !isWatchMode,
               lib: {
                 entry: join(serverSrcDir, 'main.ts'),
                 formats: ['es'],
@@ -102,10 +105,15 @@ export default defineConfig(({ mode, command }): UserConfig => {
         // client build config for browser (vite build --mode client)
         case 'client':
           return {
+            plugins: [
+              svelte({ preprocess: vitePreprocess() }),
+              createHtmlPlugin({ minify: !isWatchMode }),
+              !isWatchMode ? viteSingleFile({ removeViteModuleLoader: true }) : null,
+            ].filter(Boolean),
             root: clientSrcDir,
             publicDir: staticDir,
             build: {
-              emptyOutDir: true,
+              emptyOutDir: !isWatchMode,
               outDir: clientDistDir,
               rollupOptions: {
                 input: join(clientSrcDir, 'index.html'),
