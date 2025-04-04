@@ -52,7 +52,7 @@ built using Cloudflare Workers and uses Workers KV for storage.
   ![screenshot][kv_id]
 
   </details>
-* Run the deployment workflow
+* Run the deployment workflow (open "Actions" in your fork, click on "🚀 Deploy", and then click on "Run workflow")
 
 [new_cf_token]:https://dash.cloudflare.com/profile/api-tokens
 [token_scopes]:https://habrastorage.org/webt/zw/ou/1k/zwou1kfrf_5z9ije8bsxkhn_iqc.png
