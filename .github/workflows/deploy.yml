@@ -5,10 +5,6 @@ name: 🚀 Deploy
 
 on:
   workflow_dispatch: {}
-  push:
-    #release: {types: [published]} # TODO: uncomment this line when ready to deploy via releases
-    branches: [master, main]
-    paths: [wrangler.json, src/**, public/**, .github/workflows/deploy.yml]
 
 concurrency:
   group: ${{ github.ref }}-deploy
@@ -20,18 +16,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: |
-          cat <<< $(jq '.name = "${{ vars.CLOUDFLARE_PROJECT_NAME }}"' $FILE) > $FILE
-          cat <<< $(jq '.kv_namespaces[0].id = "${{ vars.CLOUDFLARE_KV_ID }}"' $FILE) > $FILE
-          cat <<< $(jq '.vars.AUTH_TOKEN = "${{ secrets.AUTH_TOKEN }}"' $FILE) > $FILE
-        env: {FILE: wrangler.json}
       - {uses: actions/setup-node@v4, with: {node-version-file: ./package.json, cache: 'npm'}}
-      - run: npm install && npm run gen
+      - run: npm install
+      - run: npm run gen
+      - run: npm run build
+        env:
+          PROJECT_NAME: ${{ vars.CLOUDFLARE_PROJECT_NAME }}
+          KV_ID: ${{ vars.CLOUDFLARE_KV_ID }}
+          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
       - uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_PAGES_DEPLOY_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           # docs: https://developers.cloudflare.com/workers/wrangler/commands/#deploy
-          command: deploy --name=${{ vars.CLOUDFLARE_PROJECT_NAME }}
+          command: deploy ./dist --name=${{ vars.CLOUDFLARE_PROJECT_NAME }}
         env: {WRANGLER_SEND_METRICS: false}

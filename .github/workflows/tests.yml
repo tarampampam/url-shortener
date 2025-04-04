@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+# docs: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
+
+name: 🧪 Tests
+
+on:
+  push:
+    branches: [master, main]
+    tags-ignore: ['**']
+    paths-ignore: ['**.md']
+  pull_request:
+    paths-ignore: ['**.md']
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+env: {FORCE_COLOR: 'true'}
+
+jobs:
+  gitleaks:
+    name: Check for GitLeaks
+    runs-on: ubuntu-latest
+    steps:
+      - {uses: actions/checkout@v4, with: {fetch-depth: 0}}
+      - uses: gacts/gitleaks@v1
+
+  test-and-build:
+    name: Test and build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - {uses: actions/setup-node@v4, with: {node-version-file: ./package.json, cache: 'npm'}}
+      - run: npm install -dd --no-audit
+      - run: npm run gen
+      - run: npm run lint
+      - run: npm run test
+      - run: npm run build

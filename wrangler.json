@@ -1,29 +1,19 @@
 {
   "$schema": "https://cdn.jsdelivr.net/npm/wrangler@latest/config-schema.json",
   "name": "url-shortener-app",
-  "main": "./src/main.ts",
   "compatibility_date": "2025-03-17",
-  "observability": {
-    "enabled": true
-  },
+  "no_bundle": true,
+  "send_metrics": false,
   "kv_namespaces": [
     {
       "binding": "KV",
-      "id": "WILL_BE_OVERWRITTEN_DURING_DEPLOYMENT"
+      "id": "will-be-replaced-during-build"
     }
   ],
   "assets": {
-    "directory": "./public/",
     "binding": "ASSETS"
   },
   "vars": {
-    "AUTH_TOKEN": "WILL_BE_OVERWRITTEN_DURING_DEPLOYMENT"
-  },
-  "rules": [
-    {
-      "type": "Data",
-      "globs": ["**/*.html"],
-      "fallthrough": false
-    }
-  ]
+    "AUTH_TOKEN": "secret"
+  }
 }

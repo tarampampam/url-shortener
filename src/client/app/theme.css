@@ -1,0 +1,41 @@
+:root {
+  --color-primary-bg: #fff;
+  --color-primary-text: #212529;
+  --color-primary-border: #212529;
+  --color-primary-placeholder: #b8b8b8;
+  --color-submit-input-bg: #212529;
+  --color-submit-input-text: #fff;
+  --color-secondary-bg: #eee;
+  --color-secondary-border: #b8b8b8;
+  --color-error-text: #c92a2a;
+  --color-error-bg: #ffc9c9;
+  --color-error-bg-inversed: #fff;
+  --color-error-border: #ffa8a8;
+  --color-success-text: #2b8a3e;
+  --color-success-text-inversed: #fff;
+  --color-success-bg: #b2f2bb;
+  --color-success-bg-inversed: #fff;
+  --color-success-border: #8ce99a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary-bg: #212529;
+    --color-primary-text: #fff;
+    --color-primary-border: #fff;
+    --color-primary-placeholder: #595c64;
+    --color-submit-input-bg: #fff;
+    --color-submit-input-text: #495057;
+    --color-secondary-bg: #2b3035;
+    --color-secondary-border: #495057;
+    --color-error-text: #fff;
+    --color-error-bg: #c92a2a;
+    --color-error-bg-inversed: #212529;
+    --color-error-border: #f03e3e;
+    --color-success-text: #fff;
+    --color-success-text-inversed: #212529;
+    --color-success-bg: #2f9e44;
+    --color-success-bg-inversed: #212529;
+    --color-success-border: #2b8a3e;
+  }
+}
