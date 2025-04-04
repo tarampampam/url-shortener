@@ -1,8 +1,8 @@
 <p align="center">
   <a href="https://github.com/tarampampam/url-shortener#readme">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://socialify.git.ci/tarampampam/url-shortener/image?description=1&font=Raleway&forks=1&issues=1&owner=1&pulls=1&pattern=Solid&stargazers=1&theme=Dark">
-      <img align="center" src="https://socialify.git.ci/tarampampam/url-shortener/image?description=1&font=Raleway&forks=1&issues=1&owner=1&pulls=1&pattern=Solid&stargazers=1&theme=Light">
+      <source media="(prefers-color-scheme: dark)" srcset="https://socialify.git.ci/tarampampam/url-shortener/image?logo=https%3A%2F%2Fhabrastorage.org%2Fwebt%2Fn9%2Foq%2Fvv%2Fn9oqvvypxm7pbvukai9nmpets8y.png&description=1&font=Raleway&forks=1&issues=1&owner=1&pulls=1&pattern=Solid&stargazers=1&theme=Dark">
+      <img align="center" src="https://socialify.git.ci/tarampampam/url-shortener/image?logo=https%3A%2F%2Fhabrastorage.org%2Fwebt%2Fn9%2Foq%2Fvv%2Fn9oqvvypxm7pbvukai9nmpets8y.png&description=1&font=Raleway&forks=1&issues=1&owner=1&pulls=1&pattern=Solid&stargazers=1&theme=Light">
     </picture>
   </a>
 </p>
