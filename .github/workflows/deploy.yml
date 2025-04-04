@@ -5,10 +5,6 @@ name: 🚀 Deploy
 
 on:
   workflow_dispatch: {}
-  push:
-    #release: {types: [published]} # TODO: uncomment this line when ready to deploy via releases
-    branches: [master, main]
-    paths: [wrangler.json, src/**, public/**, .github/workflows/deploy.yml]
 
 concurrency:
   group: ${{ github.ref }}-deploy

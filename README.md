@@ -1,6 +1,21 @@
-# url-shortener
+<p align="center">
+  <a href="https://github.com/tarampampam/url-shortener#readme">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://socialify.git.ci/tarampampam/url-shortener/image?description=1&font=Raleway&forks=1&issues=1&owner=1&pulls=1&pattern=Solid&stargazers=1&theme=Dark">
+      <img align="center" src="https://socialify.git.ci/tarampampam/url-shortener/image?description=1&font=Raleway&forks=1&issues=1&owner=1&pulls=1&pattern=Solid&stargazers=1&theme=Light">
+    </picture>
+  </a>
+</p>
 
-Steps to reproduce the project:
+# URL shortener
+
+This is a simple URL shortener application that allows users to create short links for long URLs. The app is
+built using Cloudflare Workers and uses Workers KV for storage.
+
+> [!TIP]
+> To prevent abuse, the app may be protected by an authentication token.
+
+## Steps to reproduce the project
 
 * Issue a [new Cloudflare API token][new_cf_token] with the following scopes (`Workers KV Storage:Edit`,
   `Workers Scripts:Edit`) and save it
