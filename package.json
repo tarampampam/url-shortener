@@ -16,23 +16,23 @@
     "dev": "conc -k --restart-tries=-1 -n server,client,wrnglr 'npm run watch:server' 'npm run watch:client' 'npm run watch:wrnglr'"
   },
   "devDependencies": {
-    "@eslint/js": "^9.36.0",
+    "@eslint/js": "^9.39.0",
     "@sveltejs/vite-plugin-svelte": "^6.2.1",
     "@tsconfig/svelte": "^5.0.5",
-    "@types/node": "^24.6.1",
+    "@types/node": "^24.9.2",
     "concurrently": "^9.2.1",
-    "eslint": "^9.36.0",
-    "globals": "^16.4.0",
+    "eslint": "^9.39.0",
+    "globals": "^16.5.0",
     "prettier": "^3.6.2",
     "prettier-plugin-svelte": "^3.4.0",
-    "svelte": "^5.39.8",
+    "svelte": "^5.43.2",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.45.0",
-    "vite": "^7.1.11",
+    "typescript-eslint": "^8.46.2",
+    "vite": "^7.1.12",
     "vite-plugin-html": "^3.2.2",
     "vite-plugin-singlefile": "^2.3.0",
-    "vitest": "^3.2.4",
-    "wrangler": "^4.40.3"
+    "vitest": "^4.0.6",
+    "wrangler": "^4.45.3"
   },
   "engines": {
     "node": "20"
