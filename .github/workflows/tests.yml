@@ -29,7 +29,7 @@ jobs:
     name: Test and build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - {uses: actions/setup-node@v4, with: {node-version-file: ./package.json, cache: 'npm'}}
       - run: npm install -dd --no-audit
       - run: npm run gen
