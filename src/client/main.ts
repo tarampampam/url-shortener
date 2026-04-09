@@ -1,5 +1,6 @@
 import { mount } from 'svelte'
-import { App, theme as _ } from './app' // eslint-disable-line @typescript-eslint/no-unused-vars
+import { App } from './app'
+import './app/theme.css'
 
 const app = mount(App, {
   target: document.getElementById('app')!,
