@@ -4,7 +4,7 @@
 .DEFAULT_GOAL := build
 .MAIN := build
 
-NODE_IMAGE = docker.io/library/node:20-bookworm
+NODE_IMAGE = docker.io/library/node:22-bookworm
 RUN_ARGS = --rm -v "$(shell pwd):/src:rw" \
 	-t --workdir "/src" \
 	-u "$(shell id -u):$(shell id -g)" \

@@ -35,9 +35,9 @@
     "wrangler": "^4.95.0"
   },
   "engines": {
-    "node": "20"
+    "node": "22"
   },
   "volta": {
-    "node": "20"
+    "node": "22"
   }
 }
